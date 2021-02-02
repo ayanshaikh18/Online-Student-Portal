@@ -32,4 +32,18 @@ This is an Online Student Portal Web application which is developed using asp.ne
 2. SQL server database for storing data of the application.
 3. Visual Studio as IDE.
 
-![](Screenshots/home.png "title-1")
+<table>
+  <tr>
+    <td><img src="Screenshots/home.png"/><td>
+    <td><img src="Screenshots/notice.png"/><td>
+  </tr>
+  <tr>
+    <td><img src="Screenshots/subjects.png"/><td>
+    <td><img src="Screenshots/assignments.png"/><td>
+  </tr>
+  <tr>
+    <td><img src="Screenshots/submissions.png"/><td>
+    <td><img src="Screenshots/viewResult.png"/><td>
+  </tr>
+</table>
+
