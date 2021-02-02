@@ -1,0 +1,71 @@
+﻿@model StudentPortal.ViewModels.AdminHomeViewModel;
+
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 text-center"><h4 class="text-dark">Department Wise List Of Students & Faculties</h4></div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="accordion" id="accordionExample">
+                @foreach (var dept in Enum.GetValues(typeof(Branch)))
+                {
+                    var headingId = dept + "Heading";
+                    <div class="card">
+                        <div class="card-header" id="@headingId">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#@dept" aria-expanded="true" aria-controls="collapseOne">
+                                    @dept
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="@dept" class="collapse" aria-labelledby="@headingId" data-parent="#accordionExample">
+                            <div class="card-body row">
+                                <div class="col-sm-6">
+                                    <h5>Faculties : </h5><br />
+                                    @if (Model.Faculties.Where(f => f.Branch == (Branch)dept).Count() == 0)
+                                    {
+                                        <text>No Faculty is registered.</text>
+                                    }
+                                    @foreach (var faculty in Model.Faculties.Where(f => f.Branch == (Branch)dept))
+                                    {
+                                        <a asp-action="UserDetails" asp-route-id="@faculty.Id">@faculty.Name</a><br />
+                                    }
+                                </div>
+                                <div class="col-sm-6">
+                                    <h5>Students</h5><br />
+                                    @if (Model.Students.Where(f => f.Branch == (Branch)dept).Count() == 0)
+                                    {
+                                        <text>No Student is registered.</text>
+                                    }
+                                    @foreach (var student in Model.Students.Where(f => f.Branch == (Branch)dept))
+                                    {
+                                        <a asp-action="UserDetails" asp-route-id="@student.Id">@student.Name</a><br />
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-12">
+            <nav aria-label="...">
+                <ul class="pagination pagination-lg justify-content-center">
+                    <li class="page-item"><a class="page-link" asp-action="Index">1</a></li>
+                    <li class="page-item active" aria-current="page">
+                        <span class="page-link">
+                            2
+                            <span class="sr-only">(current)</span>
+                        </span>
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

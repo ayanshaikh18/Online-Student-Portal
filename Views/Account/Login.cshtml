@@ -1,0 +1,55 @@
+﻿@model StudentPortal.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<br />
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <form method="post" autocomplete="off">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h3 class="text-primary">Login</h3>
+                    </div>
+                    <div class="card-body">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="form-group text-success text-center" style="font-size:18px"><b>@ViewBag.msg</b></div>
+                        <div class="form-group row">
+                            <label class="col-sm-2" asp-for="Email"></label>
+                            <input placeholder="Enter Email" class="form-control col-sm-10" asp-for="Email" />
+                            <span class="col-sm-2"></span>
+                            <span asp-validation-for="Email" class="text-danger col-sm-10"></span>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2" asp-for="Password"></label>
+                            <input placeholder="Enter Password" class="form-control col-sm-10" asp-for="Password" />
+                            <span class="col-sm-2"></span>
+                            <span asp-validation-for="Password" class="text-danger col-sm-10"></span>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label asp-for="RememberMe">
+                                    <input asp-for="RememberMe" />
+                                    @Html.DisplayNameFor(m => m.RememberMe)
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <a asp-action="ForgotPassword">Forgot Password</a>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button class="btn btn-primary w-25" type="submit">Login</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+<br />
+<br />

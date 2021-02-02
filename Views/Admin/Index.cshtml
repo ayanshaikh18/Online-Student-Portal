@@ -1,0 +1,72 @@
+﻿@model StudentPortal.ViewModels.AdminHomeViewModel;
+
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header text-primary"><h5>General Statistics</h5></div>
+                <div class="card-body" style="height:500px;overflow-y:scroll">
+                    <table class="table">
+                        <tr>
+                            <th>Students</th>
+                            <td>@Model.Students.Count()</td>
+                        </tr>
+                        <tr>
+                            <th>Faculties</th>
+                            <td>@Model.Faculties.Count()</td>
+                        </tr>
+                        <tr>
+                            <th>Subjects</th>
+                            <td>@Model.Subjects.Count()</td>
+                        </tr>
+                        <tr>
+                            <th>Notices</th>
+                            <td>@Model.Notices.Count()</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header text-primary"><h5>Department Wise Stats</h5></div>
+                <div class="card-body" style="height:500px;overflow-y:scroll">
+                    <table class="table">
+                        <tr>
+                            <th>Department</th>
+                            <th>#Faculties</th>
+                            <th>#Students</th>
+                            <th>#Subjects</th>
+                        </tr>
+                        @foreach(var dept in Enum.GetValues(typeof(Branch)))
+                        {
+                            <tr>
+                                <th>@dept</th>
+                                <td>@Model.Faculties.Where(u=>u.Branch==(Branch)dept).Count()</td>
+                                <td>@Model.Students.Where(u =>u.Branch == (Branch)dept).Count()</td>
+                                <td>@Model.Subjects.Where(s =>s.Branch == (Branch)dept).Count()</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-12">
+            <nav aria-label="...">
+                <ul class="pagination pagination-lg justify-content-center">
+                    <li class="page-item active" aria-current="page">
+                        <span class="page-link">
+                            1
+                            <span class="sr-only">(current)</span>
+                        </span>
+                    </li>
+                    <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="2">2</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

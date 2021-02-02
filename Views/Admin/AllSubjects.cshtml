@@ -1,0 +1,85 @@
+﻿@model StudentPortal.ViewModels.AdminSubjectListViewModel;
+
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <a class="h4" asp-action="NewSubject">&nbsp;New Subject <i class="fa fa-plus"></i></a>
+            <br /><br />
+        </div>
+        <br />
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header text-primary">
+                    <h4>Subject Access Requests</h4>
+                </div>
+                <div class="card-body" style="height:500px;overflow-y:scroll">
+                    <table class="table">
+                        <thead>
+                        <th>Faculty</th>
+                        <th>Subject</th>
+                        <th></th>
+                        <th></th>
+                        </thead>
+                        @foreach (var req in Model.Requests)
+                        {
+                            <tr>
+                                <td>@req.Faculty.Name</td>
+                                <td>@req.Subject.Name</td>
+                                <td>
+                                    <form method="post" asp-action="acceptRequest"
+                                          asp-route-sid="@req.SubjectId" asp-route-fid="@req.FacultyId">
+                                        <button type="submit" class="btn btn-success">Accept</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method="post" asp-action="rejectRequest"
+                                          asp-route-sid="@req.SubjectId" asp-route-fid="@req.FacultyId">
+                                        <button type="submit" class="btn btn-danger">Reject</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header text-primary">
+                    <h4>All Subjects</h4>
+                </div>
+                <div class="card-body" style="height:500px;overflow-y:scroll">
+                    <table class="table">
+                        <thead>
+                        <th>Subject</th>
+                        <th>Branch</th>
+                        <th></th>
+                        <th></th>
+                        </thead>
+                        @foreach (var req in Model.Subjects)
+                        {
+                            <tr>
+                                <td>@req.Name</td>
+                                <td>@req.Branch</td>
+                                <td>
+                                    <form method="get" asp-action="EditSubject"
+                                          asp-route-id="@req.Id">
+                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method="post" asp-action="DeleteSubject"
+                                          asp-route-id="@req.Id">
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br /><br />

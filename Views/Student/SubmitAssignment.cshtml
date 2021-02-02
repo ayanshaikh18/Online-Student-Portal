@@ -1,0 +1,106 @@
+﻿@model SubmitAssignmentViewModel;
+
+<br />
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <a class="h4" asp-action="Assignments"><i class="fa fa-arrow-left"></i>&nbsp;Back </a>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-sm-12">
+            <h3 class="text-secondary">My Submission</h3><br />
+            <h4 class="text-primary">Subject :- @Model.Assignment.Subject.Name</h4>
+        </div>
+    </div>
+    <br /><br />
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            @if (ViewBag.isSubmitted == true)
+            {
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h5>@Model.Assignment.Title</h5>
+                    </div>
+                    <div class="card-body">
+                        <p style="font-size:20px" class="text-success">You have submitted this assignment</p><br />
+                        <a href="~/files/@Model.FilePath">Submitted File</a>
+                    </div>
+                </div>
+            }
+            else
+            {
+            <form method="post" onsubmit="return validate()" enctype="multipart/form-data">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h5>@Model.Assignment.Title</h5>
+                    </div>
+                    <div class="card-body">
+                        <br />
+                        <input hidden asp-for="AssignmentId" />
+                        <div class="form-group row custom-file">
+                            <input asp-for="File" class="col-sm-12 form-control custom-file-input" required/>
+                            <label class="custom-file-label col-sm-12">Choose File...</label>
+                        </div>
+                        <br /><br />
+                        <div class="form-group row justify-content-center" id="btn1" onclick="return validate(event)">
+                            <button type="button" data-toggle="modal" data-target="#exampleModal"
+                                    class="btn btn-primary w-25">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Submitting Assignment</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Once you submit the assignment, you will not be able to make changes.<br />
+                                Click on Submit to submit the assignment.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            }
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+<br />
+<br />
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $(".custom-file-input").on("change", function () {
+                var fnm = $(this).val().split("\\").pop();
+                $(this).next('.custom-file-label').html(fnm);
+            })
+
+            
+        })
+        $("#btn1").click(function (e) {
+            if ($('.custom-file-input').val() == "") {
+                alert("Please Select File ")
+                e.stopImmediatePropagation()
+                return false;
+            }
+            return true;
+        })
+    </script>
+
+}

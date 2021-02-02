@@ -1,0 +1,90 @@
+﻿@model AppUser;
+
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <a class="h4" asp-action="Index" asp-route-page="2"><i class="fa fa-arrow-left"></i>&nbsp;Back </a>
+        </div>
+        <br /><br />
+        <div class="col-sm-12 text-center">
+            <h4 class="text-primary">Details of @Model.Name</h4>
+            <span>
+                @if (Model.IsFaculty)
+                {
+                    <text>~ Faculty</text>
+                }
+                else
+                {
+                    <text>~ Student</text>
+                }
+            </span>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Email : </td>
+                        <td>@Model.Email</td>
+                    </tr>
+                    <tr>
+                        <td>Name : </td>
+                        <td>@Model.Name</td>
+                    </tr>
+                    <tr>
+                        <td>Mobile Number : </td>
+                        <td>@Model.PhoneNumber</td>
+                    </tr>
+                    <tr>
+                        <td>Birth Date : </td>
+                        <td>@Model.BirthDate</td>
+                    </tr>
+                    <tr>
+                        <td>Address : </td>
+                        <td>@Model.Address</td>
+                    </tr>
+                    <tr>
+                        <td>Gender : </td>
+                        <td>@Model.Gender</td>
+                    </tr>
+                    <tr>
+                        <td>Caste : </td>
+                        <td>@Model.Caste</td>
+                    </tr>
+                    <tr>
+                        <td>Branch : </td>
+                        <td>@Model.Branch</td>
+                    </tr>
+                    @if (Model.IsFaculty)
+                    {
+                        <tr>
+                            <td>Degree : </td>
+                            <td>@Model.Degree</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td>HSC Board : </td>
+                            <td>@Model.HscBoard</td>
+                        </tr>
+                        <tr>
+                            <td>Board Result :</td>
+                            <td>@Model.BoardResult</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

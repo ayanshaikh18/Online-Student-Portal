@@ -1,0 +1,57 @@
+﻿@model StudentPortal.ViewModels.FacultyResultViewModel;
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 class="text-gray-100">Manage Results of Students</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="text-primary">Select Subject & Exam</h4>
+                </div>
+                <div class="card-body">
+                    <div class="container">
+                        <br />
+                        <form enctype="multipart/form-data" method="post">
+                            <div class="form-group row">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" asp-for="Exam">Select Exam</label>
+                                    </div>
+                                    <select asp-for="Exam" class="custom-select"
+                                            asp-items="Html.GetEnumSelectList<ExamType>()">
+                                    </select>
+                                    <span class="col-sm-2"></span>
+                                    <span asp-validation-for="Exam" class="text-danger col-sm-10"></span>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="form-group row">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" asp-for="SubjectId">Subject</label>
+                                    </div>
+                                    <select class="custom-select" required asp-for="SubjectId">
+                                        <option>--Select Subject--</option>
+                                        @foreach (var sub in Model.AllSubjects)
+                                        {
+                                            <option value="@sub.SubjectId">@sub.Subject.Name</option>
+                                        }
+                                    </select>
+                                    <span class="col-sm-2"></span>
+                                    <span asp-validation-for="SubjectId" class="text-danger col-sm-10"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row justify-content-center">
+                                <button type="submit" class="btn btn-lg w-25 btn-primary">OK</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

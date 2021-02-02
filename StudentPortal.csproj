@@ -1,0 +1,67 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20201117000626_AssignmentSchemeupdated.cs" />
+    <Compile Remove="Migrations\20201117000626_AssignmentSchemeupdated.Designer.cs" />
+    <Compile Remove="Migrations\20201117001023_AssignmentSchemeupdated1.cs" />
+    <Compile Remove="Migrations\20201117001023_AssignmentSchemeupdated1.Designer.cs" />
+    <Compile Remove="Migrations\20201117001847_AssignmentSchemeupdated2.cs" />
+    <Compile Remove="Migrations\20201117001847_AssignmentSchemeupdated2.Designer.cs" />
+    <Compile Remove="Migrations\20201117002509_AssignmentSchemeupdated3.cs" />
+    <Compile Remove="Migrations\20201117002509_AssignmentSchemeupdated3.Designer.cs" />
+    <Compile Remove="Migrations\20201117002933_AssignmentSchemeupdated4.cs" />
+    <Compile Remove="Migrations\20201117002933_AssignmentSchemeupdated4.Designer.cs" />
+    <Compile Remove="Migrations\20201117003358_AssignmentSchemeupdated5.cs" />
+    <Compile Remove="Migrations\20201117003358_AssignmentSchemeupdated5.Designer.cs" />
+    <Compile Remove="Migrations\20201117003521_AssignmentSchemeupdated6.cs" />
+    <Compile Remove="Migrations\20201117003521_AssignmentSchemeupdated6.Designer.cs" />
+    <Compile Remove="Migrations\20201117010359_AssignmentSchemeupdated_.cs" />
+    <Compile Remove="Migrations\20201117010359_AssignmentSchemeupdated_.Designer.cs" />
+    <Compile Remove="Migrations\20201117010534_AssignmentSchemeupdated_1.cs" />
+    <Compile Remove="Migrations\20201117010534_AssignmentSchemeupdated_1.Designer.cs" />
+    <Compile Remove="Migrations\20201117010713_AssignmentSchemeupdated_1.cs" />
+    <Compile Remove="Migrations\20201117010713_AssignmentSchemeupdated_1.Designer.cs" />
+    <Compile Remove="Migrations\20201117010903_AssignmentSchemeupdated_1.cs" />
+    <Compile Remove="Migrations\20201117010903_AssignmentSchemeupdated_1.Designer.cs" />
+    <Compile Remove="Migrations\20201117022837_resulttableupdated.cs" />
+    <Compile Remove="Migrations\20201117022837_resulttableupdated.Designer.cs" />
+    <Compile Remove="Migrations\20201117023135_resulttableupdated.cs" />
+    <Compile Remove="Migrations\20201117023135_resulttableupdated.Designer.cs" />
+    <Compile Remove="Migrations\20201117023733_resulttableupdated.cs" />
+    <Compile Remove="Migrations\20201117023733_resulttableupdated.Designer.cs" />
+    <Compile Remove="Migrations\20201117023954_resulttableupdated1.cs" />
+    <Compile Remove="Migrations\20201117023954_resulttableupdated1.Designer.cs" />
+    <Compile Remove="Migrations\20201117025835_resulttableupdated_.cs" />
+    <Compile Remove="Migrations\20201117025835_resulttableupdated_.Designer.cs" />
+    <Compile Remove="Migrations\20201117030112_resulttableupdated_.cs" />
+    <Compile Remove="Migrations\20201117030112_resulttableupdated_.Designer.cs" />
+    <Compile Remove="Migrations\20201117031106_final.cs" />
+    <Compile Remove="Migrations\20201117031106_final.Designer.cs" />
+    <Compile Remove="Migrations\20201117032226_assignmentSchemaEdited.cs" />
+    <Compile Remove="Migrations\20201117032226_assignmentSchemaEdited.Designer.cs" />
+    <Compile Remove="Migrations\20201117033506_bas_bou_thyu.cs" />
+    <Compile Remove="Migrations\20201117033506_bas_bou_thyu.Designer.cs" />
+    <Compile Remove="Migrations\20201117034359_final.cs" />
+    <Compile Remove="Migrations\20201117034359_final.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="2.9.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\files\" />
+  </ItemGroup>
+
+</Project>

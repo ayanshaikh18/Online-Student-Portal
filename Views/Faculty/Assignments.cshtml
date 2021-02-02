@@ -1,0 +1,41 @@
+﻿@model IList<Assignment>;
+
+<br />
+<div class="container">
+    <div class="row text-center">
+        <div class="col-sm-12">
+            <h3 class="text-primary">Assignments assigned</h3>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-12">
+            <a class="h4" asp-action="NewAssignment">&nbsp; New Assignment <i class="fa fa-plus"></i></a>
+            <br /><br />
+        </div>
+        <div class="col-sm-12">
+            @if (Model.Count == 0)
+            {
+                <div class="jumbotron">
+                    <h4>You haven't assign any assignment.</h4><br />
+                    click <a asp-action="NewAssignment">Here</a> to assign a new assignment.
+                </div>
+            }
+            @foreach (var assignment in Model)
+            {
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title text-secondary">Title :- @assignment.Title</h4>
+                        <h5 class="card-text">Subject :- @assignment.Subject.Name</h5><br />
+                        <p class="card-text">@assignment.Description</p><br />
+                        <div class="form-group row justify-content-center">
+                            <a class="btn btn-primary w-25 text-white" asp-action="ViewSubmissions" asp-route-id="@assignment.Id">View Students' Submissions</a>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            }
+        </div>
+    </div>
+</div>
+<br /><br />

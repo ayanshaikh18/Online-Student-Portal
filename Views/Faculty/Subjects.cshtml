@@ -1,0 +1,77 @@
+﻿@model StudentPortal.ViewModels.FacultySubjectListViewModel;
+
+<br />
+<br />
+<div class="row">
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-header text-center text-primary"><h4>My Subjects</h4></div>
+            <div class="card-body" style="height:500px;overflow-y:scroll">
+                <table class="table">
+                    <tr>
+                        <th>Subject Name</th>
+                    </tr>
+                    @foreach (var sub in Model.AccessibleSubjects)
+                    {
+                        <tr>
+                            <td>@sub.Name</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-header text-center text-primary"><h4>Other Subjects</h4></div>
+            <div class="card-body" style="height:500px;overflow-y:scroll">
+                <table class="table">
+                    <tr>
+                        <th>Subject Name</th>
+                        <th></th>
+                    </tr>
+                    @foreach (var sub in Model.NotAccessibleSubjects)
+                    {
+                        <tr>
+                            <td>@sub.Name</td>
+                            <td>
+                                <form method="post" asp-action="Subjects">
+                                    <button class="btn btn-success" type="submit" asp-route-id="@sub.Id" asp-route-cancel="false">Request Access</button>
+                                </form>
+                            </td>
+                        </tr>
+
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-header text-primary"><h4>Requested Subjects</h4></div>
+            <div class="card-body" style="height:500px;overflow-y:scroll">
+                <table class="table">
+                    <tr>
+                        <th>Subject Name</th>
+                        <th></th>
+                    </tr>
+                    @foreach (var sub in Model.requestedSubjects)
+                    {
+                        <tr>
+                            <td>@sub.Name</td>
+                            <td>
+                                <form method="post" asp-action="Subjects">
+                                    <button class="btn btn-danger" type="submit" asp-route-id="@sub.Id" asp-route-cancel="true">Cancel Request</button>
+                                </form>
+                            </td>
+                        </tr>
+
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<br /><br />

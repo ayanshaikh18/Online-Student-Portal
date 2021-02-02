@@ -1,0 +1,67 @@
+﻿@model StudentPortal.ViewModels.NoticeViewModel
+
+@{
+    ViewData["Titile"] = "New Notice";
+}
+
+<br><br />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+            <a class="h4" asp-action="notice"><i class="fa fa-arrow-left"></i>&nbsp;Back </a>
+        </div>
+        <div class="col-sm-8">
+            <form enctype="multipart/form-data" method="post">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h3 class="text-primary">New Notice</h3>
+                    </div>
+                    <div class="card-body">
+                        <div asp-validation-summary="All" class="text-danger row"></div>
+                        <div class="form-group row">
+                            <label class="col-sm-3" asp-for="Title"></label>
+                            <input placeholder="Enter Title" class="form-control col-sm-9" asp-for="Title" />
+                            <span class="col-sm-3"></span>
+                            <span class="col-sm-9 text-danger" asp-validation-for="Title"></span>
+                        </div>
+                        <br />
+                        <div class="form-group row">
+                            <label class="col-sm-3" asp-for="Description"></label>
+                            <textarea placeholder="Enter Description..." class="form-control col-sm-9" cols="40" rows="5" asp-for="Description"></textarea>
+                            <span class="col-sm-3"></span>
+                            <span class="col-sm-9 text-danger" asp-validation-for="Description"></span>
+                        </div>
+                        <br />
+                        <div class="form-group row custom-file">
+                            <input class="form-control col-sm-12 custom-file-input" asp-for="File" />
+                            <label class="custom-file-label col-sm-12">Choose File...</label>
+                        </div>
+                        <br /><br />
+                        <div class="form-group row">
+                            <label class="col-sm-3" asp-for="FileName"></label>
+                            <input class="form-control col-sm-9" placeholder="Enter File's Display Name" asp-for="FileName" />
+                        </div>
+                        <div class="form-group row justify-content-center">
+                            <button class="btn-primary btn w-25" type="submit">Create</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+<br />
+<br />
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $(".custom-file-input").on("change", function () {
+                var fnm = $(this).val().split("\\").pop();
+                $(this).next('.custom-file-label').html(fnm);
+            })
+        })
+    </script>
+
+}

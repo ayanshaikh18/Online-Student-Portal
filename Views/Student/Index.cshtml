@@ -1,0 +1,66 @@
+﻿@model AppUser
+
+@{
+    ViewData["Title"] = "Home";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <br />
+            <h2>Details</h2>
+            <br />
+            <a asp-action="EditDetails">Edit Details</a>
+            <br /><br />
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Email : </td>
+                        <td>@Model.Email</td>
+                    </tr>
+                    <tr>
+                        <td>Name : </td>
+                        <td>@Model.Name</td>
+                    </tr>
+                    <tr>
+                        <td>Mobile Number : </td>
+                        <td>@Model.PhoneNumber</td>
+                    </tr>
+                    <tr>
+                        <td>Birth Date : </td>
+                        <td>@Model.BirthDate</td>
+                    </tr>
+                    <tr>
+                        <td>Address : </td>
+                        <td>@Model.Address</td>
+                    </tr>
+                    <tr>
+                        <td>Gender : </td>
+                        <td>@Model.Gender</td>
+                    </tr>
+                    <tr>
+                        <td>Caste : </td>
+                        <td>@Model.Caste</td>
+                    </tr>
+                    <tr>
+                        <td>Branch : </td>
+                        <td>@Model.Branch</td>
+                    </tr>
+                    <tr>
+                        <td>HSC Board : </td>
+                        <td>@Model.HscBoard</td>
+                    </tr>
+                    <tr>
+                        <td>Board Result : </td>
+                        <td>@Model.BoardResult</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

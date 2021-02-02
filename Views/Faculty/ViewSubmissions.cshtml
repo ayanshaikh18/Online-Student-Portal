@@ -1,0 +1,46 @@
+﻿@model IList<Submission>;
+
+<br />
+<div class="container">
+    <div class="row text-center">
+        <div class="col-sm-12">
+            <h3 class="text-primary">Students' Submissions</h3><br />
+            <h4 class="text-secondary">Subject :- @ViewBag.SubjectName</h4>
+            <h5>Assignment :- @ViewBag.Title</h5>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <div class="card">
+                <div class="card-body">
+                    @if (Model.Count == 0)
+                    {
+                        <div class="jumbotron">
+                            <h4>No student has submitted yet.</h4>
+                        </div>
+                    }
+                    else
+                    {
+                        <table class="table">
+                            <tr>
+                                <th>Student's Name</th>
+                                <th>Submitted File</th>
+                            </tr>
+
+                            @foreach (var submission in Model)
+                            {
+                                <tr>
+                                    <td>@submission.Student.Name</td>
+                                    <td><a href="~/files/@submission.FilePath">File</a></td>
+                                </tr>
+                            }
+                        </table>
+                    }
+                            </div>
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>

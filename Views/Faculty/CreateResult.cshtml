@@ -1,0 +1,53 @@
+﻿@model IList<Result>;
+
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <a class="h4" asp-action="results"><i class="fa fa-arrow-left"></i>&nbsp;Back </a>
+        </div>
+        <div class="col-sm-12 text-center">
+            <h4 class="text-primary">Subject :- @ViewBag.Subject.Name</h4><br />
+            <h5>Exam :- @ViewBag.Exam</h5>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    @if (Model.Count == 0)
+                    {
+                        <div>No Student</div>
+                    }
+                    else
+                    {
+                        var markLimit = 60;
+                        if (Model[0].Exam == ExamType.Sessional1 || Model[0].Exam == ExamType.Sessional2
+                            || Model[0].Exam == ExamType.Sessional3)
+                            markLimit = 36;
+                        else if (Model[0].Exam == ExamType.Practical)
+                            markLimit = 50;
+                        <form method="post" asp-action="CreateResult" >
+                            @for (int i = 0; i < Model.Count; i++)
+                            {
+                                <div class="form-group row">
+                                    <label style="font-weight:normal" class="col-sm-2" asp-for="@Model[i].Marks">@Model[i].Student.Name</label>
+                                    <input class="form-control col-sm-10" max="@markLimit" asp-for="@Model[i].Marks" />
+                                    <input hidden asp-for="@Model[i].StudentId" />
+                                    <input hidden asp-for="@Model[i].SubjectId" />
+                                    <input hidden asp-for="@Model[i].Exam" />
+                                    <input hidden asp-for="@Model[i].Id" />
+                                </div>
+                            }
+                            <div class="form-group row justify-content-center">
+                                <button type="submit" class="btn btn-primary w-25">Submit</button>
+                            </div>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br /><br />

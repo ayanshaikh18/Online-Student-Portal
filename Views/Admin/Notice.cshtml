@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Notice>
+
+@{ 
+    ViewData["Title"] = "Notice";
+}
+
+<br /><br />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <a class="h4" asp-action="NewNotice">&nbsp;New Notice <i class="fa fa-plus"></i></a>
+            <br /><br />
+        </div>
+        <br /><br /><br />
+        <div class="col-sm-12">
+            @if (Model.Count()==0)
+            {
+                <div class="jumbotron">
+                        <h2><b>No Notice!!!</b></h2>
+                </div>
+            }
+            else
+            {
+                <div class="col-sm-12">
+                    <h3>All Notices</h3>
+                </div>
+                <br />
+                <div class="container">
+                    <div class="row">
+                        @foreach (var notice in Model)
+                        {
+                            <div class="col-sm-4">
+                                <div class="jumbotron">
+                                    <h4 style="color:blue">@notice.Title</h4><br />
+                                    <p class="lead">@notice.Description</p>
+                                    <hr class="my-4" />
+                                    @if (notice.FilePath != null)
+                                    {
+                                        <a href="~/files/@notice.FilePath">@(notice.FileName ?? "File")</a>
+                                    }
+                                    <hr class="my-4" />
+                                    <div class="row">
+                                        <div class="col-sm-6"><a class="btn btn-primary" asp-action="EditNotice" asp-route-id="@notice.ID">Update</a></div>
+                                        <div class="col-sm-6">
+                                            <form method="post" asp-action="DeleteNotice" asp-route-id="@notice.ID">
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<br /><br />

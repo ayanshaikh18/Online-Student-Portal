@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Online Student Portal</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="~/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        #sticky-footer {
+            bottom: 0 !important;
+        }
+
+        .bg-own {
+            background-color: #003542;
+        }
+        .nav-font-own{
+            font-size:18px;
+        }
+        label{
+            font-weight:bold;
+        }
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+    </style>
+</head>
+<body style="margin-bottom:0;padding-bottom:0">
+
+    <div id="wrapper">
+        <nav class="navbar align-items-start sidebar sidebar-dark accordion pl-0 bg-own">
+            <div class="container-fluid d-flex p-0">
+                <a class="navbar-brand shadow-lg d-flex justify-content-center align-items-center sidebar-brand m-1 ml-3" href="#">
+                    <div class="sidebar-brand-icon">
+                        <img src="~/images/ddu.png" style="height:50px;width:50px" />
+
+                    </div>
+                    <div class="sidebar-brand-text mx-4">
+                        <span>Student <br />Portal</span>
+                    </div>
+                </a>
+                <hr class="sidebar-divider my-1">
+                <ul class="nav navbar-nav text-light mt-0" id="accordionSidebar">
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="admin" asp-action="index">
+                            <i class="fa fa-home"></i> &nbsp;
+                            <span class="nav-font-own">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="admin" asp-action="notice">
+                            <i class="fa fa-bell" aria-hidden="true"></i> &nbsp;
+                            <span class="nav-font-own">Notice</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="admin" asp-action="AllSubjects">
+                            <i class="fa fa-book" aria-hidden="true"></i> &nbsp;
+                            <span class="nav-font-own">Subjects</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <form method="post" asp-controller="Account" asp-action="logout">
+                            <button type="submit"
+                                    class="nav-link btn btn-link py-0">
+                                <i class="fa fa-power-off"></i> &nbsp;
+                                <span class="nav-font-own">Logout</span>
+                            </button>
+                        </form>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <div class="container">
+                    @RenderBody()
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <footer id="sticky-footer" class="py-4 bg-dark text-white-50" style="bottom:0">
+        <div class="container text-center">
+            <div class="row">
+                <div id="about-us" class="col-sm-4" style="text-align: left;">
+                    <br>
+                    <h4 style="color:aliceblue"><b>About Us</b></h4>
+                    Mahammadayan Shaikh<br>
+                    Student at DDU<br>
+                    Web Developer<br>
+                </div>
+                <div class="col-sm-4" style="text-align: left;">
+                    <br><h4 style="color:aliceblue"><b>Contact Us</b></h4><br>
+                    <i class="fa fa-mobile-phone" style="font-size:18px">&nbsp;&nbsp;&nbsp;+91 6355156937</i><br>
+                    <i class="fa fa-envelope" style="font-size:18px">&nbsp;&nbsp;&nbsp;mahammadayan18@gmail.com</i><br>
+                </div>
+                <div class="col-sm-4" style="text-align: left;">
+                    <br><h4 style="color:aliceblue"><b>Connect with Us</b></h4><br>
+                    <i class="fa fa-instagram" style="font-size:18px;">&nbsp;&nbsp;&nbsp;_.ayan18</i><br>
+                    <i class="fa fa-linkedin-square" style="font-size:18px">&nbsp;&nbsp;&nbsp;Mahammadayan Shaikh</i><br>
+                    <i class="fa fa-facebook" style="font-size:18px">&nbsp;&nbsp;&nbsp;Ayan Shaikh</i><br>
+                </div>
+            </div><br>
+            <small>Copyright &copy; Mahammadayan Shaikh</small>
+        </div>
+    </footer>
+    @RenderSection("Scripts", required: false)
+    <script>
+        $(document).ready(function () {
+            $('form').each(function () {
+                $(this).attr('autocomplete', 'off')
+            });
+        })
+    </script>
+</body>
+</html>

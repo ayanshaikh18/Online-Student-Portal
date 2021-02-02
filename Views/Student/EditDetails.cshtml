@@ -1,0 +1,114 @@
+﻿@model AppUser
+
+@{
+    ViewData["Title"] = "Edit Details";
+}
+
+<br />
+<br />
+<div class="container">
+    <div class="row">
+
+        <div class="col-sm-12">
+            <form method="post">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Edit Details</h3>
+                    </div>
+                    <div class="card-body">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="form-group row">
+                            <label class="col-sm-2" asp-for="Email"></label>
+                            <input class="form-control col-sm-10" asp-for="Email" />
+                            <span class="col-sm-2"></span>
+                            <span asp-validation-for="Email" class="text-danger col-sm-10"></span>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2" asp-for="Name"></label>
+                            <input class="form-control col-sm-10" asp-for="Name" />
+                            <span class="col-sm-2"></span>
+                            <span asp-validation-for="Name" class="text-danger col-sm-10"></span>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2" asp-for="PhoneNumber"></label>
+                            <input class="form-control col-sm-10" asp-for="PhoneNumber" />
+                            <span class="col-sm-2"></span>
+                            <span asp-validation-for="PhoneNumber" class="text-danger col-sm-10"></span>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2" asp-for="BirthDate"></label>
+                            <input class="form-control col-sm-10" asp-for="BirthDate" />
+                            <span class="col-sm-2"></span>
+                            <span asp-validation-for="BirthDate" asp-format="{dd/MM/yyyy}" class="text-danger col-sm-10"></span>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2" asp-for="Address"></label>
+                            <input class="form-control col-sm-10" asp-for="Address" />
+                            <span class="col-sm-2"></span>
+                            <span asp-validation-for="Address" class="text-danger col-sm-10"></span>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2" asp-for="Gender"></label>
+                            <div class="col-sm-10">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" asp-for="Gender" id="male" value="Male">
+                                    <label class="form-check-label" for="male">Male</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" asp-for="Gender" id="female" value="Female">
+                                    <label class="form-check-label" for="female">Female</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" asp-for="Gender" id="others" value="Other">
+                                    <label class="form-check-label" for="others">Other</label>
+                                </div>
+                            </div>
+                            <span class="col-sm-2"></span>
+                            <span asp-validation-for="Gender" class="text-danger col-sm-10"></span>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2" asp-for="Caste"></label>
+                            <div class="col-sm-10">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" asp-for="Caste" Id="sc" value="SC">
+                                    <label class="form-check-label" for="sc">SC</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" asp-for="Caste" Id="st" value="ST">
+                                    <label class="form-check-label" for="st">ST</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" asp-for="Caste" id="obc" value="OBC">
+                                    <label class="form-check-label" for="obc">OBC</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" asp-for="Caste" id="other" value="Other">
+                                    <label class="form-check-label" for="other">Other</label>
+                                </div>
+                            </div>
+                            <span class="col-sm-2"></span>
+                            <span asp-validation-for="Caste" class="text-danger col-sm-10"></span>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2" asp-for="HscBoard"></label>
+                            <input class="form-control col-sm-10" asp-for="HscBoard" />
+                            <span class="col-sm-2"></span>
+                            <span asp-validation-for="HscBoard" class="text-danger col-sm-10"></span>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2" asp-for="BoardResult"></label>
+                            <input class="form-control col-sm-10" asp-for="BoardResult" />
+                            <span class="col-sm-2"></span>
+                            <span asp-validation-for="BoardResult" class="text-danger col-sm-10"></span>
+                        </div>
+                    </div>
+                    <div class="card-footer justify-content-center row">
+                        <button class="btn-primary btn w-25" type="submit">Update</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<br />
+<br />
